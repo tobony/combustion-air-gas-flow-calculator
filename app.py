@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class FuelGasCombustionCalculator:
     def __init__(self):
         # 분자량 정의 (kg/kmol)
@@ -199,6 +198,9 @@ class FuelGasCombustionCalculator:
             * (self.MW["O2"] * self.air_o2_ratio + self.MW["N2"] * self.air_n2_ratio),
         }
 
+
+
+## input check
 def get_composition_mole_fraction():
     default_composition = {
         "CH4": 58.57,
@@ -212,9 +214,9 @@ def get_composition_mole_fraction():
         "CO2": 3.8,
     }
 
-    use_default = input("Use default composition? (yes/no): ")
+    use_default = input("Use default composition? (Y/n): ")
     
-    if use_default.lower() == "yes":
+    if use_default.lower() == "yes" or use_default.lower() == "y":
         total = sum(default_composition.values())
         if total > 1.0:
             composition = {k: v / total for k, v in default_composition.items()}
